@@ -1,11 +1,13 @@
-const path = require("path");
+/* eslint-disable @typescript-eslint/no-require-imports */
+
+const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
-    index: ['babel-polyfill', './src/client/index.ts'],
+    index: ['babel-polyfill', './src/client/index.tsx'],
   },
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -16,7 +18,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './client/assets/index.html',
-      favicon: "./client/assets/icons/favicon.png"
+      // favicon: './client/assets/icons/favicon.png',
     }),
     new MiniCssExtractPlugin({
       filename: 'styles/[name].css'
@@ -26,29 +28,33 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
             presets: [
               '@babel/preset-env',
-              '@babel/preset-react'
+              '@babel/preset-react',
+              '@babel/preset-typescript'
             ],
+            plugins: [
+              [
+                '@babel/plugin-transform-runtime',
+                {
+                  'regenerator': true
+                }
+              ]
+            ]
           }
         }
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
@@ -73,7 +79,6 @@ module.exports = {
     ]
   },
   devServer: {
-    publicPath: '/',
     proxy: {
       '/login': { target: 'http://localhost:3000' },
       '/logout': { target: 'http://localhost:3000' },
