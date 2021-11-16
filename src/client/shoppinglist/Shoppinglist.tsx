@@ -8,3 +8,5 @@ export const Shoppinglist = () => {
     </div>
   );
 }
+
+export default Shoppinglist;
