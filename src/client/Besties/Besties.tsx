@@ -8,3 +8,5 @@ export const Besties = () => {
     </div>
   );
 }
+
+export default Besties;
