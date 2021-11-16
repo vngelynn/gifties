@@ -1,4 +1,4 @@
-import { createSlice, createAction, PayloadAction, SliceCaseReducers } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, SliceCaseReducers } from '@reduxjs/toolkit';
 import { GiftItem } from './../types';
 // need to create types file
 
