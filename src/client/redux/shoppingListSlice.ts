@@ -14,11 +14,11 @@ export const wishlistSlice = createSlice<ShoppingGiftItem[], SliceCaseReducers<S
       state.push(action.payload);
       return state;
     },
-    updateGift: (state, action: PayloadAction<GiftItem>) => {
+    updateGift: (state, action: PayloadAction<ShoppingGiftItem>) => {
       return state.map((giftItem) => giftItem.id === action.payload.id ? action.payload : giftItem);
     },
-    deleteGift: (state, action: PayloadAction<GiftItem>) =>
-     state.filter((giftItem) => giftItem.id !== action.payload.id),
+    deleteGift: (state, action: PayloadAction<ShoppingGiftItem>) =>
+      state.filter((giftItem) => giftItem.id !== action.payload.id),
   }
 });
 
