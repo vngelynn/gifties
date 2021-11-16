@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "outDir": "./../../build/server",
+    "module": "commonjs",
+    "target": "es6",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowJs": false,
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "node_modules/*"
+      ]
+    },
+  },
+}
