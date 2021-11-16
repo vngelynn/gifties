@@ -51,7 +51,7 @@ describe('Test shopping list reducer and action creators', () => {
     expect(store.getState().shoppingList).toEqual([...shoppingList, newGift]);
   });
 
-  test('Test removing a gift to the shopping list state', () => {
+  test('Test removing a gift from the shopping list state', () => {
     store.dispatch(setShoppingList(shoppingList));
 
     store.dispatch(deleteGift(shoppingList[0]));
