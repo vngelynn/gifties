@@ -12,6 +12,7 @@
     "jsx": "react",
     "paths": {
       "*.ts": ["./*"]
-    }
+    },
+    "moduleResolution": "node"
   }
 }

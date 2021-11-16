@@ -9,9 +9,9 @@ import LoggedIn from './common/LoggedIn';
 export default function App() {
   const [page, setPage] = useState<Page>(Page.Login);
 
-  return (<>
-    {page === Page.Login && <SignIn />}
-    {page === Page.SignUp && <SignUp />}
-    {page !== Page.Login && page !== Page.SignUp && <LoggedIn page={page} />}
-  </>);
+  return (
+      {page === Page.Login && <SignIn />}
+      {page === Page.SignUp && <SignUp />}
+      {page !== Page.Login && page !== Page.SignUp && <LoggedIn page={page} />}
+  );
 }
