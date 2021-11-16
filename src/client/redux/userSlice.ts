@@ -27,5 +27,5 @@ const userSlice = createSlice<UserState, SliceCaseReducers<UserState>, "user">({
   }
 });
 
-export const { setUser } = userSlice.actions;
+export const { setUser, changeName, changeEmail } = userSlice.actions;
 export default userSlice.reducer;
