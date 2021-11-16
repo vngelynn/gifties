@@ -48,7 +48,7 @@ module.exports = {
         }
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.s?[ac]ss$/i,
         use: [
           process.env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
           'css-loader',
@@ -85,11 +85,15 @@ module.exports = {
   },
   devtool: process.env.NODE_ENV !== 'production' ? 'eval-cheap-module-source-map' : undefined,
   devServer: {
+    hot: true,
     compress: true,
     proxy: {
       '/login': { target: 'http://localhost:3000' },
       '/logout': { target: 'http://localhost:3000' },
       '/api': { target: 'http://localhost:3000' },
-    }
+    },
+    client: {
+      overlay: false,
+    },
   }
 };
