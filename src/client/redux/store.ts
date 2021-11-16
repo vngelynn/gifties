@@ -1,15 +1,15 @@
-import { configureStore, createSlice} from '@reduxjs/toolkit';
+import { createStore, combineReducers } from '@reduxjs/toolkit';
 
-export default function store() {
-  configureStore({
-    reducer: {},
-  });
-}
+import userReducer from './userSlice';
+import bestiesReducer from './bestiesSlice';
+import wishlistReducer from './wishlistSlice';
+import shoppingListReducer from './shoppingListSlice';
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>;
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch;
+const combinedReducers = combineReducers({
+  user: userReducer,
+  besties: bestiesReducer,
+  wishList: wishlistReducer,
+  shoppingList: shoppingListReducer,
+});
 
-// import all reducers
-// combinereducer
+export default createStore(combinedReducers);
