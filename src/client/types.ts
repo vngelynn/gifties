@@ -14,10 +14,13 @@ export type User = {
   profileImage?: string;
 }
 
-export type GiftItem = {
-  id: number;
-  label: string;
-  description: string;
-  link: string;
-  status?: string;
+export interface GiftItem {
+  id: number,
+  label: string,
+  description?: string,
+  link?: string,
+}
+
+export interface ShoppingGiftItem extends GiftItem {
+  status: string
 }
