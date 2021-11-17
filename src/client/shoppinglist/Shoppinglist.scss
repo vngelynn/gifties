@@ -1,0 +1,21 @@
+#gifts {
+  display: flex;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+#gifts > * {
+  flex-grow: 1;
+}
+
+#shoppingList {
+  background: #E1DBD2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#shoppingList-heading {
+  text-align: center;
+}

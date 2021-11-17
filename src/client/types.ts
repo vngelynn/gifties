@@ -22,6 +22,7 @@ export interface GiftItem {
 }
 
 export interface ShoppingGiftItem extends GiftItem {
+  bestie: string,
   status: 'available' | 'purchased' | 'gifted' | 'removed'
 }
 

@@ -1,0 +1,28 @@
+#btn-add-gift {
+  position:sticky;
+  right: 0px;
+  background: black;
+  color: white;
+}
+
+#gifts {
+  display: flex;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+#gifts > * {
+  flex-grow: 1;
+}
+
+#wishlist {
+  background: #E1DBD2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#wishlist-heading {
+  text-align: center;
+}
