@@ -26,7 +26,7 @@ export default function ShoppingItem({
   return (
     <div className='gift-item' style={style}>
       <div className='gift-info'>
-        <p>For my bestie {bestie}</p>
+        <p className='forWhom'>For my bestie {bestie}</p>
 
         <h2>{label}</h2>
 
