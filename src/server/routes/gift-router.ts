@@ -15,7 +15,7 @@ import * as giftController from '../controllers/gift-controller';
 // });
 
 // TODO: create createGift middleware to add gift to user's wish list
-router.post('/:id', giftController.createGift, (req, res) => {
+router.post('/:id', giftController.createGift, giftController.addGiftToWishList, (req, res) => {
   res.status(200).send([]);
 });
 
