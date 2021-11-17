@@ -1,7 +1,13 @@
 import React from 'react';
 
+import './Splash.scss';
+
 export default function Splash() {
   return (
-    <h1>Splash</h1>
+    <div className='item item3'>
+      <div className='line'></div>
+      <div className='line'></div>
+      <div className='line'></div>
+    </div>
   );
 }

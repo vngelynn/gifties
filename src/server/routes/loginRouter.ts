@@ -13,7 +13,7 @@ router.use((req, res) => {
     besties: [
       {
         id: 0,
-        name: 'Adam'
+        name: 'Adam Sheff'
       },
       {
         id: 1,

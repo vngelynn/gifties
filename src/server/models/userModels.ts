@@ -5,7 +5,7 @@ const createUserQuery = {
   display_name VARCHAR NOT NULL,
   email VARCHAR NOT NULL UNIQUE,
   passhash VARCHAR NOT NULL,
-  profile_image VARCHAR NOT NULL,
+  profile_image VARCHAR NOT NULL
   );`,
   params: []
 }
