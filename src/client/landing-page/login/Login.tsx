@@ -43,13 +43,13 @@ export default function Login({
   }, [dispatch, email, password]);
 
   return (<>
-    <h1>Login</h1>
+    <h1>LOGIN</h1>
     <div id='login-form'>
       {errorMessage.length > 0 && <p className='error-message'>{errorMessage}</p>}
       <input type='email' value={email} onChange={onEmailChange} />
       <input type='password' value={password} onChange={onPasswordChange} />
-      <button type='submit' onClick={attemptLogin}>Login</button>
-      <button type='submit' onClick={showSignUpPage}>Sign Up</button>
+      <button type='submit' onClick={attemptLogin}>LOGIN</button>
+      <button type='submit' onClick={showSignUpPage}>SIGN UP</button>
       { /*wasFailedAttemptMade && <div>
         <a id='password-recovery' onClick={showPasswordRecoveryPage}>Forgot password?</a>
       </div> */ }
