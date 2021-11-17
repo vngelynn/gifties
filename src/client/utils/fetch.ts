@@ -15,6 +15,16 @@ export async function loginRequest(email: string, password: string): Promise<App
   return body as AppState;
 }
 
+export async function createAccountRequest(name: string, email: string, password: string): Promise<AppState | ErrorMessage> {
+  const result = await fetchHelper('/api/user', 'POST', { name, email, password });
+
+  const body: AppState | ErrorMessage = await result.json();
+
+  if (result.status !== 200) console.error((body as ErrorMessage).error);
+
+  return body;
+}
+
 async function fetchHelper<T>(url: string, method: HttpMethod, bodyObject: T): Promise<Response> {
   const options: RequestInit = {
     method,
