@@ -5,6 +5,9 @@ import { useSelector } from 'react-redux';
 
 import './Wishlist.scss';
 
+
+const backgroundColors: string[] = ['#507375','#748E81','#959F8B'];
+
 export default function Wishlist({
   wishList
 } : {
@@ -13,8 +16,11 @@ export default function Wishlist({
 
   // Map over wishList and build our GiftItems
   const gifts = wishList.map(gift => {
+    const color = backgroundColors[Math.floor(Math.random()*3)];
+
     return (
       <GiftItem
+        style={{backgroundColor: color}}
         key={gift.id}
         id={gift.id}
         label={gift.label}
@@ -27,17 +33,13 @@ export default function Wishlist({
   });
 
   return (
-    <div>
+    <div id='wishlist'>
+      <h1 id='wishlist-heading'>MY WISH LIST</h1>
+      <button id='btn-add-gift' onClick={()=>console.log('Adding a Gift')}>ADD GIFT</button>
 
-      <div id='wishlist'>
-        <h1 id='wishlist-heading'>MY WISH LIST</h1>
-        <button id='btn-add-gift' onClick={()=>console.log('Adding a Gift')}>ADD GIFT</button>
-
-        <div id='gifts'>
-          {gifts}
-        </div>
+      <div id='gifts'>
+        {gifts}
       </div>
-
     </div>
   );
 }
