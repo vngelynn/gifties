@@ -1,3 +1,8 @@
+body {
+  background-color: #4f0205;
+  font-family: 'Bodoni Moda', serif;
+  color: white;
+}
 #landing-page {
   display: flex;
   flex-direction: column;
@@ -8,15 +13,93 @@
   }
 }
 
+#heading {
+  text-align: center;
+}
+
 #lading-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  background-color: rgb(47, 224, 255);
-
+  background-image: url("https://t3.ftcdn.net/jpg/02/88/11/64/360_F_288116447_jkSbG32RZZawUcvGNygrwsYWSGR2Je4t.jpg");
+  background-color: #cca377;
+  color: black;
   width: 100%;
   max-width: 600px;
   padding: 20px 20px 40px 20px;
-  margin-top: 30vh;
+  margin-top: 10vh;
 }
+
+@keyframes spin {
+	0% {
+		content: "BIRTHDAYS";
+	}
+	10% {
+		content: "ANNIVERSARIES";
+	}
+  15% {
+		content: "FUNERALS";
+	}
+	20% {
+		content: "MOTHER'S DAY";
+	}
+  25% {
+		content: "HOUSEWARMINGS";
+	}
+	30% {
+		content: "FATHER'S DAY";
+	}
+  35% {
+		content: "PROMOTIONS";
+	}
+	40% {
+		content: "WEDDINGS";
+	}
+  45% {
+		content: "RETIREMENTS";
+	}
+	50% {
+		content: "VALENTINE'S DAY";
+	}
+  55% {
+		content: "APPRECIATION DAYS";
+	}
+	60% {
+		content: "CHRISTMAS";
+	}
+  65% {
+		content: "GRADUATIONS";
+	}
+	70% {
+		content: "BABY SHOWERS";
+	}
+  75% {
+		content: "HANUKAH";
+	}
+	80% {
+		content: "BAPTISMS";
+	}
+  85% {
+		content: "GIVING BIRTH";
+	}
+	90% {
+		content: "BAR MITZVAH";
+	}
+  95% {
+		content: "SICK VISTS";
+	}
+  100% {
+		content: "JUST CAUSE";
+	}
+}
+
+#spin {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: 50px;
+	&:after {
+		content: "";
+		animation: spin 6s linear infinite;
+	}
+}
+

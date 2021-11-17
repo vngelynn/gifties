@@ -1,0 +1,30 @@
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+}
+
+#nav-wishlist,
+#nav-besties,
+#nav-shopping-list,
+#nav-settings {
+  width: 220px;
+  height: 220px;
+}
+
+#nav-wishlist {
+  background-position: top -60px left -220px;
+}
+
+#nav-besties {
+  background-position: top -450px left -220px;
+}
+
+#nav-shopping-list {
+  background-position: top -75px left 490px;
+}
+
+#nav-settings {
+  background-position: top -450px left 490px;
+}

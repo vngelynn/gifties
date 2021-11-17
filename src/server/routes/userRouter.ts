@@ -40,12 +40,35 @@ router.post('/', (req, res) => {
     ],
     wishList: [
       {
-        id: 303,
-        label: 'Chicken wings',
-        description: 'uncooked',
-        link: 'www.nocook.com',
-        status: 'available',
+        id: 1,
+        label: 'Mario Cart',
+        description: 'The best game of all time',
+        link: 'www.mariorulz.com'
       },
+      {
+        id: 2,
+        label: 'Mario Cart2',
+        description: 'The best game of all time',
+        link: 'www.mariorulz.com'
+      },
+      {
+        id: 3,
+        label: 'Mario Cart3',
+        description: 'The best game of all time',
+        link: 'www.mariorulz.com'
+      },
+      {
+        id: 4,
+        label: 'Mario Cart4',
+        description: 'The best game of all time',
+        link: 'www.mariorulz.com'
+      },
+      {
+        id: 5,
+        label: 'Mario Cart5',
+        description: 'The best game of all time',
+        link: 'www.mariorulz.com'
+      }
     ]
   });
 });

@@ -3,6 +3,10 @@
   margin: 0 auto;
 }
 
+main {
+  max-width: 900px - 220px;
+}
+
 .error-message {
   font-weight: bold;
   color: rgb(255, 56, 56);

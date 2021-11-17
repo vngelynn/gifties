@@ -1,0 +1,32 @@
+.search-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.418);
+  margin-bottom: 20px;
+  width: 100%;
+  background-color: #fff;
+
+  color: #000;
+
+  button {
+    color: #fff;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 16px;
+    margin-left: 20px;
+    border-radius: 5px;
+  }
+}
+
+.btn-profile {
+  background-color: rgb(40, 115, 255);
+}
+
+.btn-unfriend {
+  background-color: rgb(253, 69, 69);
+}
+
+.btn-friend {
+  background-color: rgb(14, 189, 52);
+}
