@@ -15,26 +15,21 @@ const createGiftsQuery = {
 // queries for wish_lists table
 const createWishListsQuery = {
   text: `CREATE TABLE wish_lists(
-    _id SERIAL PRIMARY KEY,
-    gift_id INT NOT NULL,
-    user_id INT NOT NULL
-    );
-  `,
+  _id SERIAL PRIMARY KEY,
+  gift_id INT NOT NULL,
+  user_id INT NOT NULL
+  );`,
   params: []
-}
+};
 
-const getWishList = {
-  // TODO: Complete and test this query
-  // select label, description, link, and status from 'gifts'
-  // join on user_id, gift_id
-  // where user_id = userID
-  //** Find all the gifst in 'wish_lists where user_id = userID */
-  // text: `SELECT 
-  //   gifts.label, gifts.description, gifts.link, gifts.status, wish_lists.user_id
-  //   FROM gifts INNER JOIN wish_lists ON (gifts._id = wish_lists.gift_id)
-  //   WHERE wish_lists.user_id = ${userID};
-  // `
-}
+const getWishListQuery = {
+  text: `SELECT 
+  wish_lists.gift_id AS gift_id,
+  gifts.label, gifts.description, gifts.link
+  FROM wish_lists
+  LEFT JOIN gifts ON wish_lists.gift_id = gifts._id
+  WHERE wish_lists.user_id = $1`,
+};
 
 export const createGift = async (label: string, description: string, link: string) => {
   const query = {
