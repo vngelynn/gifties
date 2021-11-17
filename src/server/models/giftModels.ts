@@ -35,27 +35,36 @@ const getWishList = {
   // `
 }
 
-export const createGift = (label, description, link) => {
+export const createGift = async (label: string, description: string, link: string) => {
   const query = {
-  text: `INSERT INTO gifts(label, description, link)
+  text: `INSERT INTO gifts (
+    label, description, link
+  )
   VALUES ($1, $2, $3)
   RETURNING _id`,
   params: [label, description, link]
   };
-  db.query(query, (dbResponse) => {
-    return dbResponse.rows;
-  })
-}
+  await db.query(query.text, query.params, (err: Error, dbResponse: any) => {
+    if (err) {
+      console.error(err.message);
+    } 
+    console.log('rows: ', dbResponse.rows); //[ { _id: 8 } ]
+    const giftID = dbResponse.rows[0]._id;
+  });
+};
 
-export const addGiftToWishList = (userID, giftID) => {
+export const addGiftToWishList = (userID: number, giftID: number) => {
   const query = {
     text: `INSERT INTO wish_lists(user_id, gift_id)
     VALUES ($1, $2)`,
     params: [userID, giftID]
   };
-  db.query(query, dbResponse) => {
-    return dbResponse.rows;
-  }
+  db.query(query.text, query.params, (err: Error, dbResponse: any) => {
+    if (err) {
+      console.error(err.message);
+    };
+    console.log(dbResponse);
+  });
 }
 
 // queries for shopping_lists table
