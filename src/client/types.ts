@@ -30,6 +30,10 @@ export interface Bestie {
   name: string,
 }
 
+export interface BestieSearchItem extends Bestie {
+  status: 'accepted' | 'pending' | 'rejected' | 'unknown';
+}
+
 export type ErrorMessage = {
   error: string,
 }

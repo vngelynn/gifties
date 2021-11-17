@@ -18,7 +18,7 @@ export default function App() {
 
   const showSignUpPage = useCallback(() => {
     dispatch(setPage(Page.SignUp));
-  }, []);
+  }, [dispatch]);
 
   return (<div id='app'>
     {page === Page.Login &&

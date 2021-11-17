@@ -2,7 +2,7 @@ import { createSlice, PayloadAction, SliceCaseReducers } from '@reduxjs/toolkit'
 
 import { Page } from '../types';
 
-const initialState: Page = Page.Login;
+const initialState: Page = Page.Besties;
 
 const pageSlice = createSlice<Page, SliceCaseReducers<Page>, 'page'>({
   name: 'page',

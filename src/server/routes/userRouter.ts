@@ -48,4 +48,24 @@ router.post('/', (req, res) => {
   });
 });
 
+router.get('/search', (req, res) => {
+  res.json([
+    {
+      id: 0,
+      name: 'Adam',
+      status: 'accepted'
+    },
+    {
+      id: 1,
+      name: 'Angelynn',
+      status: 'pending'
+    },
+    {
+      id: 2,
+      name: 'Jackie',
+      status: 'unknown'
+    }
+  ]);
+});
+
 export default router;

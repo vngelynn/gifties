@@ -8,7 +8,6 @@ import bestiesReducer from './bestiesSlice';
 import wishListReducer from './wishListSlice';
 import shoppingListReducer from './shoppingListSlice';
 
-
 export type AppState = {
   page: Page,
   user: UserState;
