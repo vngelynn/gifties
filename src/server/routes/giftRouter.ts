@@ -5,9 +5,9 @@ import * as giftController from '../controllers/gift-controller';
 
 // TODO: create verifyUser middleware to check for current jwt
 // TODO: create getWishList middleware to get user's wish list
-// router.get('/wish-list', verifyUser, getWishList, (req, res) => {
-//   res.status(200).send([]);
-// });
+router.get('/wish-list/:id', giftController.retrieveWishList, (req, res) => {
+  res.status(200).json(res.locals.wishList);
+});
 
 // // TODO: create getShoppingList middleware to get user's wish list
 // router.get('/shopping-list', verifyUser, getShoppingList, (req, res) => {
@@ -15,8 +15,8 @@ import * as giftController from '../controllers/gift-controller';
 // });
 
 // TODO: create createGift middleware to add gift to user's wish list
-router.post('/:id', giftController.createGift, giftController.addGiftToWishList, (req, res) => {
-  res.status(200).send([]);
+router.post('/:id', giftController.createGift, giftController.addGiftToWishList, giftController.retrieveWishList, (req, res) => {
+  res.status(200).json(res.locals.wishList);
 });
 
 // TODO: create updateGift middleware to update user's wish list

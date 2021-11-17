@@ -7,7 +7,7 @@ const pool = new Pool({
   max: 5
 });
 
-module.exports = {
+export const db = {
   query: (text: string, params: Array<string>, callback: any) => {
     console.log('executed query', text);
     return pool.query(text, params, callback);
