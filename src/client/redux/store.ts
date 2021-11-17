@@ -1,15 +1,31 @@
-import { configureStore, createSlice} from '@reduxjs/toolkit';
+import { createStore, combineReducers } from '@reduxjs/toolkit';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-export default function store() {
-  configureStore({
-    reducer: {},
-  });
+import { Page, Bestie, GiftItem, ShoppingGiftItem } from './../types';
+import pageReducer from './pageSlice';
+import userReducer, { UserState } from './userSlice';
+import bestiesReducer from './bestiesSlice';
+import wishListReducer from './wishListSlice';
+import shoppingListReducer from './shoppingListSlice';
+
+
+export type AppState = {
+  page: Page,
+  user: UserState;
+  besties: Bestie[];
+  wishList: GiftItem[];
+  shoppingList: ShoppingGiftItem[];
 }
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>;
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch;
+const combinedReducers = combineReducers({
+  page: pageReducer,
+  user: userReducer,
+  besties: bestiesReducer,
+  wishList: wishListReducer,
+  shoppingList: shoppingListReducer,
+});
 
-// import all reducers
-// combinereducer
+export default createStore(
+  combinedReducers,
+  process.env.NODE_ENV === 'production' ? composeWithDevTools() : undefined
+);

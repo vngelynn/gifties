@@ -29,3 +29,9 @@ export interface Bestie {
   id: number,
   name: string,
 }
+
+export type ErrorMessage = {
+  error: string,
+}
+
+export type HttpMethod = 'GET' | 'POST' | 'PATCH' | 'DELETE';

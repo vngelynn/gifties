@@ -29,4 +29,4 @@ router.post('/:id', giftController.createGift, (req, res) => {
 //   res.status(200).send([]);
 // });
 
-export { router as giftRouter };
+export default router;
