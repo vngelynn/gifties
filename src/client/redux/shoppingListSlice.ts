@@ -4,7 +4,7 @@ import { ShoppingGiftItem } from './../types';
 
 const initialState: ShoppingGiftItem[] = [];
 
-export const wishlistSlice = createSlice<ShoppingGiftItem[], SliceCaseReducers<ShoppingGiftItem[]>, 'shoppingList'>({
+export const shoppingListSlice = createSlice<ShoppingGiftItem[], SliceCaseReducers<ShoppingGiftItem[]>, 'shoppingList'>({
   name: 'shoppingList',
   initialState,
 
@@ -22,6 +22,6 @@ export const wishlistSlice = createSlice<ShoppingGiftItem[], SliceCaseReducers<S
   }
 });
 
-export const { setShoppingList, addGift, updateGift, deleteGift } = wishlistSlice.actions;
+export const { setShoppingList, addGift, updateGift, deleteGift } = shoppingListSlice.actions;
 
-export default wishlistSlice.reducer;
+export default shoppingListSlice.reducer;
