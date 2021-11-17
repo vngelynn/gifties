@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-
 import useField from './../hooks/useField';
+
+import './GiftItem.scss';
 
 export default function GiftItem({
   id,
@@ -12,11 +13,11 @@ export default function GiftItem({
   deleteWish,
   claimWish
 } : {
-  id: string,
-  label: string;
-  description: string;
-  link: string;
-  status: string;
+  id: number,
+  label: string|undefined;
+  description: string|undefined;
+  link: string|undefined;
+  status?: string|undefined;
   deleteWish: ()=> void;
   claimWish: ()=> void;
 })  {
@@ -24,7 +25,9 @@ export default function GiftItem({
   const [currentLabel, onLabelChange] = useField(label);
   const [currentDescription, onDescriptionChange] = useField(description);
   const [currentLink, onLinkChange] = useField(link);
-  const [update, changeUpdate] = useState(false);
+  const update =  !(currentLabel === label 
+                  && currentDescription === description 
+                  && currentLink === link);
   const isOwner : boolean = (status) ? false : true;
 
 
@@ -33,56 +36,42 @@ export default function GiftItem({
     console.log('Attempting to update gift information');
   }
 
-
-  // Update input field values and verify whether any of them have changed from the original
-  function valueChange() {
-    onLabelChange;
-    onDescriptionChange;
-    onLinkChange;
-
-    // Flag if any of the values have changed to enable the update button
-    ( currentLabel === label && 
-      currentDescription === description && 
-      currentLink === link) 
-      ? changeUpdate(false) : changeUpdate(true);
-  }
-
   return (
     <div className='gift-item'>
       <div className='gift-info'>
-        <input 
+        <input
           type='text'
           value={currentLabel}
-          onChange={valueChange}
+          onChange={onLabelChange}
           disabled={!isOwner}
         />
 
         <input 
           type='text'
           value={currentDescription}
-          onChange={valueChange}
+          onChange={onDescriptionChange}
           disabled={!isOwner}
         />
 
         <input 
           type='text'
           value={currentLink}
-          onChange={valueChange}
+          onChange={onLinkChange}
           disabled={!isOwner}
         />
       </div>
 
-      <div id="buttons">
+      <div id='buttons'>
         {/* Display update button when values have changed */}
-        {update && <button onClick={submitUpdate}>Update</button>}
+        {update && <button className='btn-gift' onClick={submitUpdate}>Update</button>}
         
         {/* Display Remove Button if owner */}
         {/* TODO:Add deleteWish reducer onclick */}
-        {isOwner && <button onClick={deleteWish}>Remove</button>}
+        {isOwner && <button className='btn-gift' onClick={deleteWish}>Remove</button>}
 
         {/* Display Claim Button if not owner */}
         {/* TODO: Add claim reducer onclick*/}
-        {!isOwner && <button onClick={claimWish}>Claim</button>}
+        {!isOwner && <button className='btn-gift' onClick={claimWish}>Claim</button>}
       </div>
     </div>
   );
