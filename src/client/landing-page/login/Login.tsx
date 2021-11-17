@@ -2,7 +2,9 @@ import React, { useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
 import useField from './../../hooks/useField';
+import { Page } from './../../types';
 import { loginRequest } from './../../utils/fetch';
+import { setPage } from './../../redux/pageSlice';
 import { setUser } from './../../redux/userSlice';
 import { setBesties } from './../../redux/bestiesSlice';
 import { setShoppingList } from './../../redux/shoppingListSlice';
@@ -36,6 +38,7 @@ export default function Login({
       dispatch(setBesties(appState.besties));
       dispatch(setShoppingList(appState.shoppingList));
       dispatch(setWishList(appState.wishList));
+      dispatch(setPage(Page.WishList));
     }
   }, [dispatch, email, password]);
 

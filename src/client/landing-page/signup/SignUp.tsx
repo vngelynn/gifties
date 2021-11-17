@@ -2,15 +2,16 @@ import React, { useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
 import useField from './../../hooks/useField';
+import { Page, ErrorMessage } from './../../types';
+import { AppState } from 'redux/store.ts';
 import { createAccountRequest } from './../../utils/fetch';
+import { setPage } from './../../redux/pageSlice';
 import { setUser } from './../../redux/userSlice';
 import { setBesties } from './../../redux/bestiesSlice';
 import { setShoppingList } from './../../redux/shoppingListSlice';
 import { setWishList } from './../../redux/wishListSlice';
 
 import './SignUp.scss';
-import { ErrorMessage } from 'types.ts';
-import { AppState } from 'redux/store.ts';
 
 export default function SignUp() {
   const [name, onNameChange] = useField('');
@@ -33,6 +34,7 @@ export default function SignUp() {
       dispatch(setBesties(appState.besties));
       dispatch(setShoppingList(appState.shoppingList));
       dispatch(setWishList(appState.wishList));
+      dispatch(setPage(Page.WishList));
     }
   }, [dispatch, email, name, password]);
 
