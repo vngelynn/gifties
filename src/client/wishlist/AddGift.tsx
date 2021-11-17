@@ -19,12 +19,18 @@ export default function AddGiftModal({
 
 
   function addMyWish() {
+    // TODO: Remove id key once server route is established
     const newWish = {
       id: 222,
       label: label,
       description: description,
       link: link
     };
+
+
+    // TODO: Add POST request to server to add the wish
+
+    // TODO: Once server response is available use that wish object to update the store since it will have the unique id number value
     console.log('Adding a wish');
     dispatch(addWish(newWish));
     handleClose();
