@@ -28,3 +28,13 @@ export interface ShoppingGiftItem extends GiftItem {
 export interface WishGiftItem extends GiftItem {
   status: 'available' | 'purchased' | 'gifted' | 'removed'
 }
+export interface Bestie {
+  id: number,
+  name: string,
+}
+
+export type ErrorMessage = {
+  error: string,
+}
+
+export type HttpMethod = 'GET' | 'POST' | 'PATCH' | 'DELETE';

@@ -16,12 +16,10 @@ export default function App() {
   }, []);
 
   return (<div id='app'>
-    {page === Page.Login && <LandingPage >
-      <Login
-        showSignUpPage={showSignUpPage}
-      />
-    </LandingPage>}
-    {page === Page.SignUp && <LandingPage ><SignUp /></LandingPage>}
+    {page === Page.Login &&
+      <LandingPage ><Login showSignUpPage={showSignUpPage} /></LandingPage>
+    }
+    {page === Page.SignUp && <LandingPage><SignUp /></LandingPage>}
     {page !== Page.Login && page !== Page.SignUp && <LoggedIn page={page} />}
   </div>);
 }
