@@ -26,8 +26,6 @@ export default function Wishlist() {
         label={gift.label}
         description={gift.description}
         link={gift.link}
-        deleteWish={() => console.log('Deleting a Wish')}
-        claimWish={() => console.log('Claiming a Wish')}
       />
     );
   });
