@@ -1,4 +1,6 @@
 import { Router } from 'express';
+import { retrieveWishList } from './../controllers/gift-controller';
+
 
 const router = Router();
 
@@ -66,6 +68,12 @@ router.get('/search', (req, res) => {
       status: 'unknown'
     }
   ]);
+});
+
+router.get('/friend/:id', retrieveWishList, (req, res) => {
+
+  res.status(200).json(res.locals.wishList);
+
 });
 
 export default router;

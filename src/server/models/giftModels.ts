@@ -16,11 +16,11 @@ const createGiftsQuery = {
 const createWishListsQuery = {
   text: `CREATE TABLE wish_lists(
   _id SERIAL PRIMARY KEY,
-  CONSTRAINT gift_id FOREIGN KEY (_id) REFERENCES gifts(_id),
-  CONSTRAINT user_id FOREIGN KEY (_id) REFERENCES users(_id)
+  gift_id INT NOT NULL,
+  user_id INT NOT NULL
   );`,
   params: []
-}
+};
 
 const getWishList = {
   // TODO: Complete and test this query
