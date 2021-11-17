@@ -1,9 +1,18 @@
 import { createStore, combineReducers } from '@reduxjs/toolkit';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-import userReducer from './userSlice';
+import { Bestie, GiftItem, ShoppingGiftItem } from './../types';
+import userReducer, { UserState } from './userSlice';
 import bestiesReducer from './bestiesSlice';
 import wishListReducer from './wishListSlice';
 import shoppingListReducer from './shoppingListSlice';
+
+export type AppState = {
+  user: UserState;
+  besties: Bestie[];
+  wishList: GiftItem[];
+  shoppingList: ShoppingGiftItem[];
+}
 
 const combinedReducers = combineReducers({
   user: userReducer,
@@ -12,4 +21,7 @@ const combinedReducers = combineReducers({
   shoppingList: shoppingListReducer,
 });
 
-export default createStore(combinedReducers);
+export default createStore(
+  combinedReducers,
+  process.env.NODE_ENV === 'production' ? composeWithDevTools() : undefined
+);

@@ -8,7 +8,7 @@ export const wishListSlice = createSlice<GiftItem[], SliceCaseReducers<GiftItem[
   initialState,
 
   reducers: {
-    setWishList: (state, action: PayloadAction<GiftItem[]>) => action.payload,
+    setWishList: (_state, action: PayloadAction<GiftItem[]>) => action.payload,
     addWish: (state, action: PayloadAction<GiftItem>) => {
       state.push(action.payload);
       return state;
