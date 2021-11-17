@@ -5,6 +5,7 @@ import useField from './../hooks/useField';
 import './GiftItem.scss';
 
 export default function GiftItem({
+  style,
   id,
   label, 
   description, 
@@ -13,6 +14,7 @@ export default function GiftItem({
   deleteWish,
   claimWish
 } : {
+  style: React.CSSProperties;
   id: number,
   label: string|undefined;
   description: string|undefined;
@@ -37,7 +39,7 @@ export default function GiftItem({
   }
 
   return (
-    <div className='gift-item'>
+    <div className='gift-item' style={style}>
       <div className='gift-info'>
         <input
           type='text'
