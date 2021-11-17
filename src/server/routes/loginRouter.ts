@@ -45,27 +45,27 @@ router.use((req, res) => {
       },
       {
         id: 2,
-        label: 'Mario Cart2',
-        description: 'The best game of all time',
-        link: 'www.mariorulz.com'
+        label: 'Tamagotchi',
+        description: 'i want it',
+        link: 'www.tamagotchi.com'
       },
       {
         id: 3,
-        label: 'Mario Cart3',
-        description: 'The best game of all time',
-        link: 'www.mariorulz.com'
+        label: 'Banana Phone',
+        description: 'To call grandma',
+        link: 'www.phones.com'
       },
       {
         id: 4,
-        label: 'Mario Cart4',
-        description: 'The best game of all time',
-        link: 'www.mariorulz.com'
+        label: 'Cold Beer Coats',
+        description: 'My beer is cold',
+        link: 'www.beerattire.com'
       },
       {
         id: 5,
-        label: 'Mario Cart5',
-        description: 'The best game of all time',
-        link: 'www.mariorulz.com'
+        label: 'Socks',
+        description: 'I keep losing mine',
+        link: 'www.socks.com'
       }
     ]
   });

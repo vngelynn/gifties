@@ -75,7 +75,7 @@ export default function GiftItem({
     <div className='gift-item' style={style}>
       <div className='gift-info'>
         <input
-          className='gift-item-input'
+          className='gift-item-input label'
           type='text'
           value={currentLabel}
           onChange={onLabelChange}
@@ -83,7 +83,7 @@ export default function GiftItem({
         />
 
         <input 
-          className='gift-item-input'
+          className='gift-item-input description'
           type='text'
           value={currentDescription}
           onChange={onDescriptionChange}
@@ -91,7 +91,7 @@ export default function GiftItem({
         />
 
         <input
-          className='gift-item-input' 
+          className='gift-item-input link' 
           type='text'
           value={currentLink}
           onChange={onLinkChange}
