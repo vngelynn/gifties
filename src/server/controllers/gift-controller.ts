@@ -5,10 +5,9 @@ import { db }  from './../models/db';
 
 // NOTE: I defined the two queries within functions in the models/giftModels folder, but the promises were not returning as expected
 
-export const createGift = async (req: Request, res: Response, next: NextFunction) => {
+export const createGift = (req: Request, res: Response, next: NextFunction) => {
   try {
     const { label, description, link } = req.body;
-    let giftID;
 
     // Query the DB to add a gift to the gifts table
     const giftQuery = {
@@ -19,23 +18,21 @@ export const createGift = async (req: Request, res: Response, next: NextFunction
     RETURNING _id`,
     params: [label, description, link]
     };
-    await db.query(giftQuery.text, giftQuery.params, (err: Error, dbResponse: any) => {
+    db.query(giftQuery.text, giftQuery.params, (err: Error, dbResponse: any) => {
       if (err) {
         console.error(err.message);
-      } 
-      giftID = dbResponse.rows[0]._id;
-      console.log('giftID: ', giftID);
-      res.locals.giftID = giftID;
+      }
+      console.log('createGiftResponse: ', dbResponse.rows);
+      res.locals.giftID = dbResponse.rows[0]._id;
+      return next();
     });
-    return next();
   }
     catch (err) {
     next(err);
   }
 };
 
-
-export const addGiftToWishList = async (req: Request, res: Response, next: NextFunction) => {
+export const addGiftToWishList = (req: Request, res: Response, next: NextFunction) => {
   try {
     const { id } = req.params;
 
@@ -46,7 +43,7 @@ export const addGiftToWishList = async (req: Request, res: Response, next: NextF
       RETURNING *`,
       params: [id, res.locals.giftID]
     };
-    await db.query(wishListQuery.text, wishListQuery.params, (err: Error, dbResponse: any) => {
+    db.query(wishListQuery.text, wishListQuery.params, (err: Error, dbResponse: any) => {
       if (err) {
         console.error(err.message);
       }
@@ -81,8 +78,9 @@ export const retrieveWishList = async (req: Request, res: Response, next: NextFu
       }
       console.log('retrieveWishListResponse: ', dbResponse.rows);
       res.locals.wishList = dbResponse.rows;
+      next();
     });
-
+    
   }
   
   catch (err) {

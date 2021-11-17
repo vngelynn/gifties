@@ -16,7 +16,7 @@ router.get('/wish-list/:id', giftController.retrieveWishList, (req, res) => {
 
 // TODO: create createGift middleware to add gift to user's wish list
 router.post('/:id', giftController.createGift, giftController.addGiftToWishList, giftController.retrieveWishList, (req, res) => {
-  res.status(200).send(res.locals.wishList);
+  res.status(200).json(res.locals.wishList);
 });
 
 // TODO: create updateGift middleware to update user's wish list
