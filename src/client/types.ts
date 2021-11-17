@@ -16,6 +16,7 @@ export type User = {
 
 export interface GiftItem {
   id: number,
+  owner: string,
   label: string,
   description?: string,
   link?: string,
@@ -23,7 +24,7 @@ export interface GiftItem {
 
 export interface ShoppingGiftItem extends GiftItem {
   bestie: string,
-  status: 'available' | 'purchased' | 'gifted' | 'removed'
+  status: 'available' | 'claimed' | 'purchased' | 'gifted' | 'removed'
 }
 
 export interface Bestie {
