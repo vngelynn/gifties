@@ -5,10 +5,10 @@ const createUserQuery = {
   display_name VARCHAR NOT NULL,
   email VARCHAR NOT NULL UNIQUE,
   passhash VARCHAR NOT NULL,
-  profile_image VARCHAR NOT NULL,
+  profile_image VARCHAR NOT NULL
   );`,
   params: []
-}
+};
 
 // queries for besties table
 const createBestiesQuery = {
@@ -19,7 +19,7 @@ const createBestiesQuery = {
   status VARCHAR NOT NULL DEFAULT 'pending'
   );`,
   params: []
-}
+};
 
 //queries for questions and question_answers tables
 const createQuestionsQuery = {
@@ -28,7 +28,7 @@ const createQuestionsQuery = {
   question VARCHAR NOT NULL
   );`,
   params: []
-}
+};
 
 const createQuestionAnswersTable = {
   text: `CREATE TABLE question_answers(
@@ -38,4 +38,4 @@ const createQuestionAnswersTable = {
   answer VARCHAR NOT NULL
   );`,
   param: []
-}
+};

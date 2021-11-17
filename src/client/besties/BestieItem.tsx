@@ -1,24 +1,23 @@
-import React, { useState } from 'react';
-
-import useField from './../hooks/useField';
+import React, { MouseEvent } from 'react';
 
 import './BestieItem.scss';
 
+function getTwoLetters(name: string): string {
+  const splitName = name.toUpperCase().split(' ');
+  return splitName.length === 1 ? splitName[0][0] + splitName[0][1] : splitName[0][0] + splitName[1][0];
+}
+
 export default function BestieItem({
-  id,
   name,
-  addBestie,
-  deleteBestie
-} : {
-  id: number,
-  name: string|undefined;
-  addBestie: () => void;
-  deleteBestie: () => void;
-})  {
+  openModal
+}: {
+  name: string;
+  openModal: (event: MouseEvent) => void;
+}) {
 
   return (
-    <div className='bestie-item'>
-
+    <div className='bestie-item' onClick={openModal}>
+      <p>{getTwoLetters(name)}</p>
     </div>
   );
 }

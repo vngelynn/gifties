@@ -16,38 +16,34 @@ const createGiftsQuery = {
 const createWishListsQuery = {
   text: `CREATE TABLE wish_lists(
   _id SERIAL PRIMARY KEY,
-  CONSTRAINT gift_id FOREIGN KEY (_id) REFERENCES gifts(_id),
-  CONSTRAINT user_id FOREIGN KEY (_id) REFERENCES users(_id)
+  gift_id INT NOT NULL,
+  user_id INT NOT NULL
   );`,
   params: []
-}
+};
 
-const getWishList = {
-  // TODO: Complete and test this query
-  // select label, description, link, and status from 'gifts'
-  // join on user_id, gift_id
-  // where user_id = userID
-  //** Find all the gifst in 'wish_lists where user_id = userID */
-  // text: `SELECT 
-  //   gifts.label, gifts.description, gifts.link, gifts.status, wish_lists.user_id
-  //   FROM gifts INNER JOIN wish_lists ON (gifts._id = wish_lists.gift_id)
-  //   WHERE wish_lists.user_id = ${userID};
-  // `
-}
+const getWishListQuery = {
+  text: `SELECT 
+  wish_lists.gift_id AS gift_id,
+  gifts.label, gifts.description, gifts.link
+  FROM wish_lists
+  LEFT JOIN gifts ON wish_lists.gift_id = gifts._id
+  WHERE wish_lists.user_id = $1`,
+};
 
 export const createGift = async (label: string, description: string, link: string) => {
   const query = {
-  text: `INSERT INTO gifts (
+    text: `INSERT INTO gifts (
     label, description, link
   )
   VALUES ($1, $2, $3)
   RETURNING _id`,
-  params: [label, description, link]
+    params: [label, description, link]
   };
   await db.query(query.text, query.params, (err: Error, dbResponse: any) => {
     if (err) {
       console.error(err.message);
-    } 
+    }
     console.log('rows: ', dbResponse.rows); //[ { _id: 8 } ]
     const giftID = dbResponse.rows[0]._id;
   });

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './SearchItem.scss';
+
 export default function SearchItem({
   name,
   status,
@@ -14,10 +16,10 @@ export default function SearchItem({
   return (
     <div className='search-item'>
       <h3>{name}</h3>
-      <button onClick={showProfile}>Profile</button>
-      {status === 'accepted' && <button>Unfriend</button>}
-      {status === 'unknown' && <button>Friend</button>}
-      {status === 'pending' && <button>Revoke</button>}
+      <button onClick={showProfile} className='btn-profile'>Profile</button>
+      {status === 'accepted' && <button className='btn-unfriend'>Unfriend</button>}
+      {status === 'unknown' && <button className='btn-friend'>Friend</button>}
+      {status === 'pending' && <button className='btn-unfriend'>Revoke</button>}
     </div>
   );
 }
