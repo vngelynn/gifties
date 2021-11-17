@@ -15,10 +15,11 @@ const createGiftsQuery = {
 // queries for wish_lists table
 const createWishListsQuery = {
   text: `CREATE TABLE wish_lists(
-  _id SERIAL PRIMARY KEY,
-  CONSTRAINT gift_id FOREIGN KEY (_id) REFERENCES gifts(_id),
-  CONSTRAINT user_id FOREIGN KEY (_id) REFERENCES users(_id)
-  );`,
+    _id SERIAL PRIMARY KEY,
+    gift_id INT NOT NULL,
+    user_id INT NOT NULL
+    );
+  `,
   params: []
 }
 
@@ -37,17 +38,17 @@ const getWishList = {
 
 export const createGift = async (label: string, description: string, link: string) => {
   const query = {
-  text: `INSERT INTO gifts (
+    text: `INSERT INTO gifts (
     label, description, link
   )
   VALUES ($1, $2, $3)
   RETURNING _id`,
-  params: [label, description, link]
+    params: [label, description, link]
   };
   await db.query(query.text, query.params, (err: Error, dbResponse: any) => {
     if (err) {
       console.error(err.message);
-    } 
+    }
     console.log('rows: ', dbResponse.rows); //[ { _id: 8 } ]
     const giftID = dbResponse.rows[0]._id;
   });

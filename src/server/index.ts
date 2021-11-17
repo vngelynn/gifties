@@ -1,4 +1,4 @@
-// require('dotenv').config();
+require('dotenv').config();
 import express, { Express, Request, Response } from 'express';
 import giftRouter from './routes/gift-router';
 import apiRouter from './routes/apiRouter';
