@@ -38,7 +38,7 @@ export default function AddGiftModal({
 
   return(
     <div id='add-gift'>
-      <h1>WHAT IS YOUR WISH?</h1>
+      <h1 className='enterWish'>WHAT IS YOUR WISH?</h1>
       <div className='gift-item' style={style}>
       <div className='gift-info'>
         <input

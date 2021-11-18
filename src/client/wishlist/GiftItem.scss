@@ -9,13 +9,15 @@
   justify-content: end;
   padding-top: .5em;
   margin: .5em;
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 70%;
 }
 
 .gift-item {
   color: white;
   border: 1px solid black;
   border-radius: .25em;
-
+  box-shadow: 2px 2px grey;
   margin: .25em;
   display: flex;
   flex-direction: column;
@@ -26,6 +28,8 @@
   display: flex;
   flex-direction: column;
   justify-content: start;
+  padding-left: 5px;
+  padding-top: 5px;
 }
 
 .gift-item-input {
@@ -33,4 +37,23 @@
   outline: none;
   background-color: rgba(255, 255, 255, 0);
   color: white;
+}
+
+.label {
+  font-family: 'Baskervville', serif;
+  font-size: 110%;
+}
+
+.description {
+  font-family: 'Baskervville', serif;
+  font-size: 90%;
+}
+
+.link {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 70%;
+}
+
+.enterWish {
+  color: black;
 }
