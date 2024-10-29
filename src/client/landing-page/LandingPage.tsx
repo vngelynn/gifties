@@ -1,6 +1,7 @@
 import React from "react"
 
 import "./LandingPage.scss"
+import NavBar from "../common/NavBar"
 
 export default function LandingBox({
   children,
@@ -9,6 +10,7 @@ export default function LandingBox({
 }) {
   return (
     <div id='landing-page'>
+      <NavBar />
       <div id='header'>
         <p>
           <h1>YOUR ONE-STOP SPOT FOR</h1>
