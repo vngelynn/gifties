@@ -1,8 +1,9 @@
 body {
-  background-color: #4f0205;
+  background-color: whitesmoke;
   font-family: 'Bodoni Moda', serif;
-  color: white;
+  color: black;
 }
+
 #landing-page {
   display: flex;
   flex-direction: column;
@@ -13,7 +14,7 @@ body {
   }
 }
 
-#heading {
+#header {
   text-align: center;
 }
 
